@@ -10,7 +10,7 @@ export const loadUser = () => async dispatch => {
   } 
 
   try {
-    const res = await axios.get('/api/users/getuser');
+    const res = await axios.get(`${window.location.origin}/api/users/getuser`);
 
     dispatch({
       type: USER_LOADED,
@@ -34,7 +34,7 @@ export const register = ({ name, email, password }) => async dispatch => {
   const body = JSON.stringify({ name, email, password });
 
   try {
-    const res = await axios.post('/api/users', body, config);
+    const res = await axios.post(`${window.location.origin}/api/users`, body, config);
 
     dispatch({
       type: REGISTER_SUCCESS,
@@ -65,7 +65,7 @@ export const login = (email, password) => async dispatch => {
   const body = JSON.stringify({ email, password });
 
   try {
-    const res = await axios.post('/api/users/login', body, config);
+    const res = await axios.post(`${window.location.origin}/api/users/login`, body, config);
 
     dispatch({
       type: LOGIN_SUCCESS,
